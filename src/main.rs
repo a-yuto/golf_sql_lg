@@ -52,8 +52,18 @@ fn relation(sql: &str) -> String {
     fn hoge(sql: &str, now_word: &str,index: usize,with_flag: bool,from_flag: bool,start: &str,end: &str) -> String {
         if ch == " " {
             if with_flag {
-                hoge(sql,)
+                hoge(sql,"",index + 1,false,false,now_word,end);
             }
+            if now_word == "WITH" {
+                hoge(sql,"",index + 1,true,false,start,end);
+            }
+            if from_flag {
+                hoge(sql,"",index + 1,false,false,now_word,now_word);
+            }
+            if now_word == "FROM" {
+                hoge(sql,"",index + 1,false,true,start,end);
+            }
+
         }
     }
     format!("{} → {}",start,end)
