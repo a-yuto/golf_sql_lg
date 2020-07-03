@@ -63,7 +63,9 @@ fn relation(sql: &str) -> String {
             if now_word == "FROM" {
                 hoge(sql,"",index + 1,false,true,start,end);
             }
-
+        }
+        else {
+            
         }
     }
     format!("{} → {}",start,end)
